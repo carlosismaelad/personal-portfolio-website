@@ -1,5 +1,5 @@
 <template>
-  <section id="home" class="first-section">
+  <section id="hero-container" class="first-section">
     <div class="hero-container">
       <div class="left-side">
         <div class="header"></div>
@@ -23,54 +23,89 @@
   </section>
 </template>
 
-<style>
+<style scoped>
 .first-section {
   width: 100%;
-  height: 100%;
-  gap: 10rem;
+  padding: 2rem 1rem;
 }
 
 .hero-container {
   display: flex;
-  max-width: 1440px;
-  margin-inline: auto;
+  flex-direction: column;
   align-items: center;
-  padding-top: 6rem;
-  gap: 8rem;
-  justify-content: center;
-  padding-bottom: 80px;
+  gap: 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 .left-side,
 .right-side {
-  max-width: 50%;
-  z-index: 3;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+/* Reordena os elementos para mobile */
+.right-side {
+  order: -1;
+  margin-top: 3rem;
 }
 
 .left-side h1 {
   color: #00ffe9;
-  font-size: 42px;
+  font-size: 2rem;
   font-weight: 600;
   line-height: 1.2em;
-  margin-bottom: 20px;
-  max-width: 500px;
+  margin-bottom: 1rem;
 }
+
 .left-side p {
   color: #ffffff;
-  padding-top: 1.5rem;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 600;
-  line-height: 1.2em;
-  text-align: left;
-  margin-bottom: 80px;
-  max-width: 475px;
-  line-height: 1.2em;
+  line-height: 1.5em;
+  margin-bottom: 2rem;
 }
 
 .github-image {
   border: 1px solid #00ffe9;
-  height: 20rem;
+  width: 100%;
+  max-width: 20rem;
+  height: auto;
   border-radius: 50%;
-  overflow: hidden;
+}
+
+/* Estilos para desktop */
+@media (min-width: 768px) {
+  .hero-container {
+    flex-direction: row;
+    gap: 8rem;
+    padding-top: 6rem;
+    padding-bottom: 80px;
+  }
+
+  .left-side,
+  .right-side {
+    max-width: 50%;
+    text-align: left;
+  }
+
+  /* Remove a reordenação para desktop */
+  .right-side {
+    order: 0;
+  }
+
+  .left-side h1 {
+    font-size: 42px;
+  }
+
+  .left-side p {
+    font-size: 1.3rem;
+  }
+
+  .github-image {
+    height: 20rem;
+  }
 }
 </style>
