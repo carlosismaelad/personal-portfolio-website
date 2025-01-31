@@ -5,6 +5,7 @@ import HeroContainer from './views/HeroContainer.vue'
 import MovingText from './views/MovingText.vue'
 import AboutMe from './views/AboutMe.vue'
 import Skills from './views/Skills.vue'
+import BackToTopButton from './components/BackToTopButton.vue'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 // Estado reativo para armazenar a largura da tela
@@ -37,5 +38,6 @@ onUnmounted(() => {
     <MovingText />
     <AboutMe />
     <Skills />
+    <BackToTopButton />
   </div>
 </template>

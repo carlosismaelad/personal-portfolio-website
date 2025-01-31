@@ -1,11 +1,11 @@
 <template>
   <section class="second-section">
     <h2 class="background-moving-text-blue">
-      Full stack * Back end * .NET * Javascript * Java * Node.js * Back end * Ruby * Ruby on Rails *
+      Back end * Full stack * Node.js * .NET * Javascript * Java * Back end * Ruby * Ruby on Rails *
       Front end * Vue.js * React * Angular
     </h2>
     <h2 class="background-moving-text-white">
-      Full stack * Back end * Node.js * .NET * Javascript * Vue.js * React * Ruby * Ruby on Rails *
+      Full stack * Node.js * Back end * .NET * Javascript * Vue.js * React * Ruby * Ruby on Rails *
       Front end * Java * Spring boot * Angular
     </h2>
   </section>

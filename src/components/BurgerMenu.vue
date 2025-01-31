@@ -76,26 +76,6 @@
   </nav>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      isMenuOpen: false,
-    }
-  },
-  methods: {
-    openMenu() {
-      this.isMenuOpen = true
-      document.body.classList.add('menu-expanded')
-    },
-    closeMenu() {
-      this.isMenuOpen = false
-      document.body.classList.remove('menu-expanded')
-    },
-  },
-}
-</script>
-
 <style scoped>
 /* Estilos gerais */
 nav {
@@ -106,6 +86,11 @@ nav {
   height: 72px;
   background: transparent;
   z-index: 100;
+  transition: background-color 0.3s ease-in-out; /* Adicionado transição */
+}
+
+nav.scroll {
+  background-color: #011a17; /* Cor de fundo ao rolar */
 }
 
 .menu-button {
@@ -121,12 +106,12 @@ nav {
 /* Menu de Navegação */
 .menu {
   position: fixed;
-  bottom: -100%;
+  top: -100%;
   left: 0;
   width: 100%;
   height: 100vh;
   background: #011a17;
-  transition: bottom 0.5s ease-in-out;
+  transition: top 0.9s ease-in-out; /* Transição para o topo */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -135,7 +120,7 @@ nav {
 }
 
 .menu-open {
-  bottom: 0;
+  top: 0; /* Move o menu para a posição inicial */
 }
 
 .menu ul {
@@ -181,3 +166,37 @@ body.menu-expanded > :not(nav) {
   visibility: hidden;
 }
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      isMenuOpen: false,
+    }
+  },
+  methods: {
+    openMenu() {
+      this.isMenuOpen = true
+      document.body.classList.add('menu-expanded')
+    },
+    closeMenu() {
+      this.isMenuOpen = false
+      document.body.classList.remove('menu-expanded')
+    },
+    showNavOnScroll() {
+      const nav = document.getElementById('rolagem')
+      if (window.scrollY > 0) {
+        nav.classList.add('scroll')
+      } else {
+        nav.classList.remove('scroll')
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener('scroll', this.showNavOnScroll)
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.showNavOnScroll)
+  },
+}
+</script>
